@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #0B0B0B;
+    --color-primary: #E11D2E;
+    --color-flame: #FF7A1A;
+    --color-cream: #F5EBDD;
+  }
+
+  body {
+    background-color: #0B0B0B;
+    color: #F5EBDD;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #121214;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2E2E34;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E11D2E;
+  }
+}
+
+/* Brush stroke red banner styling */
+.brush-badge {
+  background: linear-gradient(135deg, #E11D2E 0%, #B91C1C 100%);
+  position: relative;
+  display: inline-block;
+  transform: skew(-4deg);
+  box-shadow: 0 4px 15px rgba(225, 29, 46, 0.4);
+}
+
+.brush-heading {
+  position: relative;
+  display: inline-block;
+}
+.brush-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #E11D2E, #FF7A1A, transparent);
+  border-radius: 4px;
+  transform: skew(-10deg);
+}
+
+/* Subtle carbon / grain texture */
+.bg-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-smoke-radial {
+  background: radial-gradient(circle at 50% 20%, rgba(225, 29, 46, 0.15), transparent 70%),
+              radial-gradient(circle at 80% 80%, rgba(255, 122, 26, 0.08), transparent 60%);
+}
+
+/* Neon & flame text glows */
+.text-flame-glow {
+  text-shadow: 0 0 10px rgba(225, 29, 46, 0.7), 0 0 20px rgba(255, 122, 26, 0.4);
+}
+
+.box-glow {
+  box-shadow: 0 0 25px rgba(225, 29, 46, 0.25);
+}
+
+.box-glow-hover {
+  transition: all 0.25s ease-in-out;
+}
+.box-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(225, 29, 46, 0.4);
+  border-color: rgba(225, 29, 46, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Print styling for kitchen receipts */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #000 !important;
+    background: #fff !important;
+  }
+}
